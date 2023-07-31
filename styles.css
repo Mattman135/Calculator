@@ -1,0 +1,80 @@
+/* *, *::before, *::after, collect the before and after pseudo elements if they exist */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal; /*normal equals to 400*/
+    
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(90deg, #000C14, #F8002F);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    padding: 32px;
+    border-radius: 16px;
+    background-color: rgb(130, 116, 116, .95);
+    gap: 8px;
+    border: none;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .6);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: span 4;
+    background-color: white;
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+
+button {
+    border-radius: 8px;
+}
+
+#equals:hover {
+    background-color: rgba(61, 215, 66, 0.75);
+    scale: 0.97;
+    transition: 200ms;
+}
+
+#delete:hover, #clear:hover {
+    background-color: rgba(180, 44, 69, 0.874);
+    scale: 0.97;
+    transition: 200ms;
+}
+
+#division:hover, #multiplication:hover, #subtraction:hover, #addition:hover {
+    background-color: rgb(33, 201, 201);
+    scale: 0.97;
+    transition: 200ms;
+}
+
+button:hover {
+    scale: 0.97;
+    transition: 200ms;
+}
