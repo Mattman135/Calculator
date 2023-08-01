@@ -10,27 +10,27 @@
 <body>
     <div class="calculator-grid">
         <div class="output">
-            <div class="previous-operand">123 + </div>
-            <div class="current-operand">235235</div>
+            <div data-previous-operand class="previous-operand"></div> <!--Use data-attributes to not mix up JS with CSS-->
+            <div data-current-operand class="current-operand"></div>
         </div>
-        <button type="button" class="span-two" id="delete">DELETE</button>
-        <button type="button" class="span-two" id="clear">CLEAR</button>
-        <button type="button">7</button>
-        <button type="button">8</button>
-        <button type="button">9</button>
-        <button type="button" id="division">÷</button>
-        <button type="button">4</button>
-        <button type="button">5</button>
-        <button type="button">6</button>
-        <button type="button" id="multiplication">*</button>
-        <button type="button">1</button>
-        <button type="button">2</button>
-        <button type="button">3</button>
-        <button type="button" id="subtraction">-</button>
-        <button type="button">.</button>
-        <button type="button">0</button>
-        <button type="button" id="equals">=</button>
-        <button type="button" id="addition">+</button>
+        <button data-delete type="button" class="span-two" id="delete">DELETE</button>
+        <button data-clear type="button" class="span-two" id="clear">CLEAR</button>
+        <button data-number type="button">7</button>
+        <button data-number type="button">8</button>
+        <button data-number type="button">9</button>
+        <button data-operation type="button" id="division">÷</button>
+        <button data-number type="button">4</button>
+        <button data-number type="button">5</button>
+        <button data-number type="button">6</button>
+        <button data-operation type="button" id="multiplication">*</button>
+        <button data-number type="button">1</button>
+        <button data-number type="button">2</button>
+        <button data-number type="button">3</button>
+        <button data-operation type="button" id="subtraction">-</button>
+        <button data-number type="button">.</button>
+        <button data-number type="button">0</button>
+        <button data-equals type="button" id="equals">=</button>
+        <button data-operation type="button" id="addition">+</button>
     </div>
 </body>
 </html>
