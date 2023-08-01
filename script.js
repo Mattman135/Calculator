@@ -56,7 +56,11 @@ function operate(previous, current, operator) {
 
 function updateDisplay() {
    previousOperandTextElement.innerHTML = previousOperand + " " + operator;
-   currentOperandTextElement.innerHTML = currentOperand;
+   if (currentOperand === "") {
+    currentOperandTextElement.innerHTML = currentOperand;
+   } else {
+    currentOperandTextElement.innerHTML = parseFloat(currentOperand).toLocaleString();
+   }
 }
 
 function clear() {
