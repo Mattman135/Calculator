@@ -12,6 +12,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 100vh;
 }
 
@@ -94,4 +95,26 @@ button {
 button:hover {
     scale: 0.97;
     transition: 200ms;
+}
+
+/*footer*/
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    font-size: large;
+    margin-top: 32px;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+img:hover {
+    rotate: 360deg;
+    transition: 800ms;
+    scale: 1.1;
 }

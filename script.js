@@ -50,6 +50,9 @@ function operate(previous, current, operator) {
         case "/":
             return divide(a, b);
             break;
+        case "÷":
+            return divide(a, b);
+            break;
         default:
             return "ERROR";
     }
