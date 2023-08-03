@@ -27,6 +27,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
+        console.log(a, b);
         return "ERROR";
     } else {
         return a / b;
@@ -46,11 +47,11 @@ function operate(previous, current, operator) {
         case "*":
             return multiply(a, b);
             break;
-        case "÷":
+        case "/":
             return divide(a, b);
             break;
         default:
-            return;
+            return "ERROR";
     }
 }
 
@@ -59,7 +60,7 @@ function updateDisplay() {
    if (currentOperand === "") {
     currentOperandTextElement.innerHTML = currentOperand;
    } else {
-    currentOperandTextElement.innerHTML = parseFloat(currentOperand).toLocaleString();
+    currentOperandTextElement.innerHTML = currentOperand; //parseFloat(currentOperand).toLocaleString();
    }
 }
 
@@ -76,6 +77,16 @@ function _delete() {
         updateDisplay();
     }
 }
+
+function equals() {
+    if (previousOperand === "" || currentOperand === "" || operator === "") return;
+    //console.log(previousOperand, operator, currentOperand);
+    currentOperand = operate(previousOperand, currentOperand, operator).toString();
+    previousOperand = "";
+    operator = "";
+    updateDisplay();
+}
+
 
 // Listeners
 numberButtons.forEach(button => {
@@ -102,12 +113,7 @@ operationButtons.forEach(button => {
 })
 
 equalsButton.addEventListener("click", () => {
-    if (previousOperand === "" || currentOperand === "" || operator === "") return;
-    console.log(previousOperand, operator, currentOperand);
-    currentOperand = operate(previousOperand, currentOperand, operator).toString();
-    previousOperand = "";
-    operator = "";
-    updateDisplay();
+    equals();
 })
 
 clearButton.addEventListener("click", () => {
@@ -116,4 +122,40 @@ clearButton.addEventListener("click", () => {
 
 deleteButton.addEventListener("click", () => {
     _delete();
+})
+
+// Keyboard support
+
+let numbers = ".0123456789";
+let operators = "+-*/=";
+
+window.addEventListener("keydown", (event) => {
+
+    if (event.key === "Shift") return;
+    if (!numbers.includes(event.key) && !operators.includes(event.key)) return;
+
+    let key = event.key;
+    console.log
+
+    if (operators.includes(key)) {
+        if (operator === "" && key !== "=") {
+            previousOperand = currentOperand;
+            operator = key;
+            currentOperand = "";
+            updateDisplay();
+        } else if ("+-*/".includes(key)){
+            previousOperand = operate(previousOperand, currentOperand, operator).toString();
+            operator = key;
+            currentOperand = "";
+            updateDisplay();
+        } else if (key === "=") {
+            equals();
+            updateDisplay();
+        }
+    }
+
+    if (numbers.includes(key)) {
+        currentOperand += key;
+        updateDisplay();
+    }
 })
